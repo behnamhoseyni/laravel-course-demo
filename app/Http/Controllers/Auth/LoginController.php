@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\UserLoggedIn;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -18,7 +20,9 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers {
+        sendLoginResponse as protected sendLoginResponseTrait;
+    }
 
     /**
      * Where to redirect users after login.
@@ -30,10 +34,16 @@ class LoginController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * @param Request $request
      */
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    protected function sendLoginResponse(Request $request)
+    {
+        event(new UserLoggedIn($request));
+        return $this->sendLoginResponseTrait($request);
     }
 }
