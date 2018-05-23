@@ -10,6 +10,8 @@ class PostController extends Controller
 {
     /**
      * Show the application dashboard.
+     * @param Request $request
+     * @return View
      */
     public function index(Request $request): View
     {

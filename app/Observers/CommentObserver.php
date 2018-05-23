@@ -8,6 +8,7 @@ class CommentObserver
 {
     /**
      * Listen to the Comment creating event.
+     * @param Comment $comment
      */
     public function creating(Comment $comment): void
     {

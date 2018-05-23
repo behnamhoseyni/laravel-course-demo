@@ -59,6 +59,9 @@ class Post extends Model
 
     /**
      * Scope a query to search posts
+     * @param Builder $query
+     * @param null|string $search
+     * @return Builder
      */
     public function scopeSearch(Builder $query, ?string $search)
     {
@@ -69,6 +72,8 @@ class Post extends Model
 
     /**
      * Scope a query to order posts by latest posted
+     * @param Builder $query
+     * @return Builder
      */
     public function scopeLatest(Builder $query): Builder
     {

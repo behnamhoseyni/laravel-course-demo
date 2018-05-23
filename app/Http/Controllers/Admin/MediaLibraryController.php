@@ -40,6 +40,8 @@ class MediaLibraryController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * @param MediaLibraryRequest $request
+     * @return RedirectResponse
      */
     public function store(MediaLibraryRequest $request): RedirectResponse
     {

@@ -8,6 +8,7 @@ class MediaObserver
 {
     /**
      * Listen to the Media creating event.
+     * @param Media $medium
      */
     public function creating(Media $medium): void
     {

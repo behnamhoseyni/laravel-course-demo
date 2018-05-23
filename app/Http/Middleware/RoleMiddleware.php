@@ -9,6 +9,10 @@ class RoleMiddleware
 {
     /**
      * Handle the incoming request.
+     * @param Request $request
+     * @param Closure $next
+     * @param string $role
+     * @return \Illuminate\Http\RedirectResponse|mixed
      */
     public function handle(Request $request, Closure $next, string $role)
     {

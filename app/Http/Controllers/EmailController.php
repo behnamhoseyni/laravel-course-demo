@@ -12,14 +12,14 @@ class EmailController extends Controller
 {
     public function sendEmail()
     {
-        // SYNC Version
-        // Mail::to('ehsan120@gmail.com')->send(new SendMailable());
+//         SYNC Version
+//         Mail::to('ehsan120@gmail.com')->send(new SendMailable());
 
 
         // A-SYNC VERSION
         $emailJob = (new SendEmailJob())->delay(Carbon::now()->addSeconds(3));
         dispatch($emailJob);
 
-        echo 'email sent';
+        echo '<h1>email sent</h1>';
     }
 }

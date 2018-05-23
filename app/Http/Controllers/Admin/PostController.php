@@ -25,6 +25,8 @@ class PostController extends Controller
 
     /**
      * Display the specified resource edit form.
+     * @param Post $post
+     * @return View
      */
     public function edit(Post $post): View
     {
